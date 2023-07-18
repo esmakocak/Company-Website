@@ -1,0 +1,87 @@
+@use '../custom' as *;
+@use '../components/mixins' as *;
+
+.portfolio {
+    padding: 4rem 0;
+    .button {
+        text-transform: capitalize;
+    }
+
+    .head {
+        margin-top: 8rem;
+    }
+}
+
+.cards {
+    padding: 0;
+    padding-bottom: 0;
+    width: 25rem;
+    position: relative;
+    height: 18.5rem;
+    -ms-text-combine-horizontal: 18.5rem;
+    overflow: hidden;
+    margin-bottom: 1.2rem;
+    border-top: 0.5rem solid $purple-light;
+
+    img {
+        width: 100%;
+        height: 100%;
+    }
+
+    .portfolio-info {
+        background-color: rgba($primary, 0.75);
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        opacity: 0;
+        visibility: hidden;
+
+        .caption {
+            text-align: center;
+            color: $white;
+            @include absoluteCenter;
+
+            h4 {
+                text-transform: uppercase;
+                display: block;
+            }
+        }
+    }
+
+    &:hover {
+        .portfolio-info {
+            opacity: 1;
+            visibility: visible;
+            @include transitionProperty;
+        }
+        img {
+            transform: scale(1.5);
+            @include transitionProperty;
+        }
+    }
+
+}
+
+#filterable-cards .cards.hide {
+    display: none;
+}
+
+
+#filterable-cards {
+    justify-content: center;
+}
+
+
+@media (min-width: 760px) and (max-width: 990px) {
+    #filterable-cards {
+      justify-content: center;
+    }
+    #filterable-cards .cards {
+        width: 15rem;
+        margin-block-end: 0%;
+    }
+}
+
+  
